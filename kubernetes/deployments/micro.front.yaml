@@ -2,19 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: front
+    app: weather
+    layer: front
   name: front
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: front
+      app: weather
+      layer: front
   strategy: {}
   template:
     metadata:
       labels:
-        app: front
+        app: weather
+        layer: front
     spec:
       containers:
-        - image: gavdraper/microfront:v1
+        - image: gavdraper/microfront:v4
           name: front

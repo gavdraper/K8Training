@@ -3,18 +3,21 @@ kind: Deployment
 metadata:
   labels:
     app: weather
+    layer: back
   name: weather
 spec:
   replicas: 2
   selector:
     matchLabels:
       app: weather
+      layer: back
   strategy: {}
   template:
     metadata:
       labels:
         app: weather
+        layer: back
     spec:
       containers:
-        - image: gavdraper/microbackweather:v2
+        - image: gavdraper/microbackweather:v4
           name: microbackweater

@@ -17,12 +17,13 @@ public class ProxyController : ControllerBase
 
     public async Task<string> Get()
     {
+        _logger.LogInformation($"{base.HttpContext.Request.Path} Requested By {HttpContext.Request.Host} Serving From {Environment.MachineName} V4");
         //Http to Bsckend
         // client.DefaultRequestHeaders.Accept.Clear();
         // client.DefaultRequestHeaders.Accept.Add(
         //     new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
         // client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
-        var json = await client.GetStringAsync("http://weather/WeatherForecast");
+        var json = await client.GetStringAsync("http://weather-svc/WeatherForecast");
         return json;
     }
 }
