@@ -13,6 +13,8 @@ public class ProxyController : ControllerBase
     public ProxyController(ILogger<ProxyController> logger)
     {
         _logger = logger;
+        _logger.LogInformation($"Starting Controller For {Environment.GetEnvironmentVariable("env")} with descrition {Environment.GetEnvironmentVariable("description")}");
+
     }
 
     public async Task<string> Get()

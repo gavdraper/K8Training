@@ -19,5 +19,16 @@ spec:
         layer: front
     spec:
       containers:
-        - image: gavdraper/microfront:v4
+        - image: gavdraper/microfront:v5
           name: front
+          env:
+            - name: env
+              valueFrom:
+                configMapKeyRef:
+                  name: front-config
+                  key: env
+            - name: description
+              valueFrom:
+                configMapKeyRef:
+                  name: front-config
+                  key: description                  
